@@ -6,8 +6,8 @@ import csv, simplejson, decimal, codecs
 # Date: 2014/12/16
 # Author: Carlos Granier
 
-INFILE: "MASTER-Metadata-File_Episodes.csv"
-OUTFILE: "MASTER-Metadata-File_Episodes.json"
+INFILE = "MASTER-Metadata-File_Episodes.csv"
+OUTFILE = "MASTER-Metadata-File_Episodes.json"
 
 data = open(INFILE)
 reader = csv.DictReader(data, delimiter=",", quotechar='"')
