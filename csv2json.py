@@ -2,14 +2,17 @@ import csv, simplejson, decimal, codecs
 
 # Convert MASTER Metadata File (downloaded as a CSV)
 # to json format for import into mongodb
-# Version: 1.0
+# Version: 1.1
 # Date: 2014/12/16
 # Author: Carlos Granier
 
-data = open("MASTER-Metadata-File_Episodes.csv")
+INFILE: "MASTER-Metadata-File_Episodes.csv"
+OUTFILE: "MASTER-Metadata-File_Episodes.json"
+
+data = open(INFILE)
 reader = csv.DictReader(data, delimiter=",", quotechar='"')
 
-with codecs.open("out.json", "w", encoding="utf-8") as out:
+with codecs.open(OUTFILE, "w", encoding="utf-8") as out:
    for r in reader:
       for k, v in r.items():
          # make sure nulls are generated
