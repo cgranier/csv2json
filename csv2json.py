@@ -5,6 +5,7 @@ import csv, simplejson, decimal, codecs
 # Version: 1.1
 # Date: 2014/12/16
 # Author: Carlos Granier
+# Use: mongoimport -d metadata -c episodes --file MASTER-Metadata-File_Episodes.json
 
 INFILE = "MASTER-Metadata-File_Episodes.csv"
 OUTFILE = "MASTER-Metadata-File_Episodes.json"
