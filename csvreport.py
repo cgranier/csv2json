@@ -41,6 +41,7 @@ with open(OUTFILE, "w") as out:
          elif k == "HuluAdBreaks":
             if r[k] != "":
                adbreaks = v.split(",")
+               adbreaklist = []
                for ad in adbreaks:
                   adhour   = int(ad[0:2]) * 60 * 60
                   adminute = int(ad[3:5]) * 60
@@ -48,7 +49,9 @@ with open(OUTFILE, "w") as out:
                   adframe  = int(ad[9:11])
                   adbreakseconds = adhour + adminute + adsecond
                   print r["MediaKey"], " ", r["EpisodeTitle"], " ", adbreakseconds
-               r[k] = v.replace("|",",")
+                  adbreaklist.append(str(adbreakseconds))
+               r[k] = ",".join(adbreaklist)
+               print r[k]
          # generate a number
          #elif k == "EpisodeNumber":
          #   r[k] = int(v)
