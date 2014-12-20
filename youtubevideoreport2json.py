@@ -1,6 +1,6 @@
 import csv, simplejson, decimal, codecs
 
-# Convert MASTER Metadata File (downloaded as a CSV)
+# Convert YouTube Video Report (downloaded as a CSV)
 # to json format for import into mongodb
 # Version: 1.1
 # Date: 2014/12/16
@@ -10,8 +10,8 @@ import csv, simplejson, decimal, codecs
 # INFILE = "MASTER-Metadata-File_Episodes.csv"
 # OUTFILE = "MASTER-Metadata-File_Episodes.json"
 
-INFILE = "MASTER-Metadata-File_Shows.csv"
-OUTFILE = "MASTER-Metadata-File_Shows.json"
+INFILE = "20141218_YouTube-Video-Report_GOTV.csv"
+OUTFILE = "20141218_YouTube-Video-Report_GOTV.json"
 
 data = open(INFILE)
 reader = csv.DictReader(data, delimiter=",", quotechar='"')
@@ -26,22 +26,20 @@ with codecs.open(OUTFILE, "w", encoding="utf-8") as out:
          #elif k == "loc":
          #   r[k] = [decimal.Decimal(n) for n in v.strip("[]").split(",")]
          # parse and generate Category array
-         elif k == "Category":
-            r[k] = [n for n in v.strip("[]").split("|")]
-         elif k == "Genre":
-            r[k] = [n for n in v.strip("[]").split("|")]
-         elif k == "Keywords":
-            r[k] = [n for n in v.strip("[]").split("|")]
-         elif k == "Cast":
-            r[k] = [n for n in v.strip("[]").split("|")]
-         elif k == "Director":
-            r[k] = [n for n in v.strip("[]").split("|")]
-         elif k == "Writer":
-            r[k] = [n for n in v.strip("[]").split("|")]
-         elif k == "YouTubeAdBreaks":
-            r[k] = [n for n in v.strip("[]").split("|")]
-         elif k == "HuluAdBreaks":
-            r[k] = [n for n in v.strip("[]").split(",")]
+         # elif k == "Category":
+         #    r[k] = [n for n in v.strip("[]").split("|")]
+         # elif k == "Genre":
+         #    r[k] = [n for n in v.strip("[]").split("|")]
+         # elif k == "Keywords":
+         #    r[k] = [n for n in v.strip("[]").split("|")]
+         # # elif k == "Cast":
+         # #    r[k] = [n for n in v.strip("[]").split("|")]
+         # elif k == "Director":
+         #    r[k] = [n for n in v.strip("[]").split("|")]
+         # elif k == "YouTubeAdBreaks":
+         #    r[k] = [n for n in v.strip("[]").split("|")]
+         # elif k == "HuluAdBreaks":
+         #    r[k] = [n for n in v.strip("[]").split(",")]
          # generate a number
          #elif k == "EpisodeNumber":
          #   r[k] = int(v)
